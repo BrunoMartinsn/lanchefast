@@ -52,7 +52,7 @@
 
                                             </div>
                                             <div class="card-footer text-end">
-                                                <a href="{{ route('clientes.index') }}" class="btn btn-secondary">Voltar</a>
+                                                <a href="{{ route('clientes.index') }}" class="btn btn-success">Voltar</a>
                                             </div>
                                         </form>
 

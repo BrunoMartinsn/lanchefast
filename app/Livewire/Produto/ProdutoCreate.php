@@ -11,35 +11,32 @@ class ProdutoCreate extends Component
     public $nome;
     public $ingredientes;
     public $valor;
-    public $imagem;
+    
+    
+
     
 
     protected $rules = [
-        'nome'=> 'required',
-        'ingredientes' => 'required',
-        'valor' => 'required|decimal 10,2',
+        'nome' => 'required|string|max:255',
+        'ingredientes' => 'required|string',
+        'valor' => 'required|numeric|min:0',
         
     ];
 
-    protected $messages = [
-        'nome.required' => 'nome obrigatorio',
-        'ingredientes.required' => 'ingredientes obrigatorio',
-        'valor.required' => 'valor obrigatório',
-        'valor.decimal' => 'valor decimal 8,2'
-    ];
-    
+    public function store()
+    {
+        $this->validate();
 
-    public function store(){
+       
         Produto::create([
             'nome' => $this->nome,
             'ingredientes' => $this->ingredientes,
             'valor' => $this->valor,
             
+        ]);
 
-        ]); 
-
-        session()->flash('success', 'Cadastro Realizado');
-        $this->validate();
+        session()->flash('success', 'Produto cadastrado com sucesso!');
+        return redirect()->route('produtos.index');
     }
     
     
