@@ -1,24 +1,20 @@
 <?php
 
-namespace App\Livewire\Clientes;
+namespace App\Livewire\Funcionario;
 
-use App\Models\Cliente;
+use App\Models\Funcionario;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
-class Create extends Component
+class FuncionarioCreate extends Component
 {
     public $nome;
-    public $endereco;
-    public $telefone;
     public $cpf;
     public $email;
     public $senha;
 
     protected $rules = [
         'nome'=> 'required',
-        'endereco' => 'required',
-        'telefone' => 'required',
         'cpf' => 'required|min:11|unique',
         'email' => 'required|email|unique',
         'senha' => 'required|min:6'
@@ -26,8 +22,6 @@ class Create extends Component
 
     protected $messages = [
         'nome.required' => 'nome obrigatorio',
-        'endereco.required' => 'endereco obrigatorio',
-        'telefone.required' => 'telefone obrigatório',
         'cpf.required' => 'cpf obrigatório',
         'cpf.unique' => 'cpf unico',
         'cpf.min' => 'cpf deve conter no minimo 11 caracteres',
@@ -40,10 +34,8 @@ class Create extends Component
     
 
     public function store(){
-        Cliente::create([
+        Funcionario::create([
             'nome' => $this->nome,
-            'endereco' => $this->endereco,
-            'telefone' => $this->telefone,
             'cpf' => $this->cpf,
             'email' => $this->email,
             'senha' => Hash::make($this->senha),
@@ -51,11 +43,11 @@ class Create extends Component
         ]); 
 
         session()->flash('success', 'Cadastro Realizado');
-        return redirect()->route('clientes.index');
+        return redirect()->route('funcionarios.index');
         $this->validate();
     }
     public function render()
     {
-        return view('livewire.clientes.create');
+        return view('livewire.funcionario.funcionario-create');
     }
 }
