@@ -1,7 +1,7 @@
 <div class="container mt-5">
     <div class="card shadow-sm">
-        <div class="card-header bg-warning text-white">
-            <h4 class="mb-0">Editar Cliente</h4>
+        <div class="card-header  btext-white" style="background-color: rgb(255, 255, 255)">
+            <h4 class="mb-0">Editar produto</h4>
         </div>
         <div class="card-body">
             <form wire:submit.prevent="update">
@@ -26,7 +26,7 @@
                     <input type="email" class="form-control" wire:model.defer="email">
                 </div>
                 <button class="btn btn-primary">Atualizar</button>
-                <a href="{{ route('clientes.index') }}" class="btn btn-secondary">Cancelar</a>
+                <a href="{{ route('clientes.index') }}" class="btn btn-danger">Cancelar</a>
             </form>
         </div>
     </div>
