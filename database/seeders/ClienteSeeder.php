@@ -17,7 +17,7 @@ class ClienteSeeder extends Seeder
             'nome' =>'Cliente Exemplo',
             'endereco' => 'Rua exemplo 123',
             'telefone' => '11999999',
-            'cpf' => '1234567801',
+            'cpf' => '1234567809',
             'email' => 'cliente@exemplo.com',
             'senha' => bcsqrt('123'),
 
