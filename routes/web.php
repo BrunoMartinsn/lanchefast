@@ -1,5 +1,9 @@
 <?php
 
+use App\Livewire\Administrador\AdministradorCreate;
+use App\Livewire\Administrador\AdministradorEdit;
+use App\Livewire\Administrador\AdministradorIndex;
+use App\Livewire\Administrador\AdministradorShow;
 use App\Livewire\Funcionario\FuncionarioCreate;
 use App\Livewire\Funcionario\FuncionarioEdit;
 use App\Livewire\Funcionario\FuncionarioIndex;
@@ -29,4 +33,11 @@ Route::prefix('funcionarios')->group(function () {
     Route::get('/create', FuncionarioCreate::class)->name('funcionarios.create');
     Route::get('/{funcionario}', FuncionarioShow::class)->name('funcionarios.show');
     Route::get('/{funcionario}/edit', FuncionarioEdit::class)->name('funcionarios.edit');
+});
+
+Route::prefix('administrador')->group(function () {
+    Route::get('/', AdministradorIndex::class)->name('administrador.index');
+    Route::get('/create', AdministradorCreate::class)->name('administrador.create');
+    Route::get('/{administrador}', AdministradorShow::class)->name('administrador.show');
+    Route::get('/{administrador}/edit', AdministradorEdit::class)->name('administrador.edit');
 });
